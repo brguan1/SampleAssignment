@@ -1,5 +1,7 @@
 float y = 75;
 float y2 = 125;
+float t = 150;
+float t2 = 230;
 void setup(){
   size(600,600);
   frameRate(1);
@@ -8,16 +10,6 @@ void setup(){
 void draw(){
   sea();
   action();
-   
- while(y<126){
-  if(y<=125){
-   y = y + 1;
-  y2 = y2 - 1;
-  }else{
-    y = 75;
-    y2 = 125;
-  }
- }
 }
 
 void sea(){
@@ -60,9 +52,21 @@ void action(){
  triangle(315,25,275,95,325,105);
  //wave
  stroke(50);
- fill(150,235,255,255);
+ fill(t,235,255,255);
  bezier(0,100,100,y,200,y,300,100);
  stroke(50);
-    fill(230,233,255,255);
+    fill(t2,233,255,255);
  bezier(300,100,400,y2,500,y2,600,100);
+
+
+ while(y<126){
+   y = y + 1;
+  y2 = y2 - 1;
+}
+  if(y<=0){
+    t=230;
+  }
+    if(y>=0){
+    t2=150;
+  }
 }
